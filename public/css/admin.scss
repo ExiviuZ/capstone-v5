@@ -1,0 +1,135 @@
+body {
+  display: flex;
+}
+
+.first-nav {
+  height: 100%;
+  position: fixed;
+  width: 20%;
+  padding: 1rem;
+  background-color: #001122;
+  color: white;
+  .brand {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-weight: 700;
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid gray;
+  }
+  .nav-logo {
+    width: 50px;
+  }
+
+  .nav-actions-wrap {
+    padding: 1rem;
+  }
+  .dashboard {
+    font-size: 1.1rem;
+    > a {
+      text-decoration: none;
+      color: hsl(0, 0%, 60%);
+      transition: color 0.25s linear;
+      &:hover {
+        color: hsl(0, 0%, 95%);
+      }
+      &.link-active {
+        color: white;
+      }
+    }
+  }
+
+  .nav-links {
+    padding-left: 0.5rem;
+    font-size: 1rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-top: 1rem;
+      a {
+        color: hsl(0, 0%, 60%);
+        text-decoration: none;
+        transition: color 0.25s linear;
+        &.link-active {
+          color: white;
+        }
+      }
+      &:hover a {
+        color: hsl(0, 0%, 95%);
+      }
+    }
+  }
+
+  .people-svg {
+    filter: invert(100%) sepia(5%) saturate(7462%) hue-rotate(214deg)
+      brightness(102%) contrast(109%);
+  }
+}
+
+main {
+  width: 80%;
+  margin-left: auto;
+  background-color: gray;
+}
+
+.second-nav {
+  background-color: hsl(210, 100%, 10%);
+  color: white;
+  padding: 1.6rem;
+  display: flex;
+  justify-content: end;
+  position: relative;
+  .admin {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    user-select: none;
+    .nav-profile-img {
+      width: 30px;
+      filter: invert(100%) sepia(5%) saturate(7462%) hue-rotate(214deg)
+        brightness(102%) contrast(109%);
+    }
+    .dropdown {
+      background-color: red;
+      width: 17%;
+      right: 0;
+      position: absolute;
+      top: 100%;
+      background-color: hsl(210, 100%, 12%);
+      border-bottom-left-radius: 10px;
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility 0.25s ease-in-out, opacity ease-in-out 0.25s;
+      &.active {
+        visibility: visible;
+        opacity: 1;
+      }
+      li {
+        cursor: default;
+        padding: 1.5rem 2.5rem;
+        margin: auto;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        &:not(:last-child) {
+          border-bottom: 1px solid whitesmoke;
+        }
+        a {
+          text-decoration: none;
+          font-weight: 800;
+          transition: color 0.25s ease-in-out;
+          color: hsl(60, 5%, 60%);
+          &:hover {
+            color: hsl(60, 5%, 100%);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/img/barangay-logo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="/css/alert.css" />
+    <link rel="stylesheet" href="/css/household.css" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <%- include('../partials/success') %> <%- include('../partials/error') %>
+
+    <nav class="first-nav">
+      <span class="brand"
+        ><img src="/img/barangay-logo.png" class="nav-logo" alt="" /> Barangay
+        Records</span
+      >
+      <ul class="nav-actions-wrap">
+        <li class="dashboard">
+          <a href="/admin/">Dashboard</a>
+          <ul class="nav-links">
+            <li>
+              <img src="/img/people.svg" class="people-svg" alt="" /><a
+                href="/admin/household"
+                class="link-active"
+                >Barangay Households</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <nav class="second-nav">
+        <span class="admin">
+          <img src="/img/profile.svg" class="nav-profile-img" /> <%=
+          `${currentUser.name}`%> ▼
+          <ul class="dropdown">
+            <li><a href="/logout">Log-out</a></li>
+          </ul>
+        </span>
+      </nav>
+
+      <section class="content">
+        <h1 class="resident-head-title">
+          <img src="/img/stats.svg" class="stats-svg" alt="" /> Household
+          Registrants
+        </h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Photo</th>
+              <th>Household Registree</th>
+              <th>Address</th>
+              <th>Tools</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(user of users){ %>
+            <tr>
+              <td>
+                <img src="/img/profile.svg" class="resident-img" alt="" />
+              </td>
+              <td><%= user.fullName %></td>
+              <td><%= user.fullAddress %></td>
+              <td class="action-cell">
+                <div class="action-container">
+                  <a href="/admin/household/<%= user._id %>"
+                    ><img src="/img/visibility.svg" class="action-icons" alt=""
+                  /></a>
+                  <a href=""
+                    ><img src="/img/edit.svg" class="action-icons" alt=""
+                  /></a>
+                  <a
+                    id="<%= user._id  %>"
+                    class="delete-btn"
+                    onclick="openModal(this.id)"
+                    ><img src="/img/delete.svg" class="action-icons" alt=""
+                  /></a>
+                </div>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <div id="id01" class="modal">
+      <span
+        onclick="document.getElementById('id01').style.display='none'"
+        class="close"
+        title="Close Modal"
+        >×</span
+      >
+      <form class="modal-content delete-form" method="post">
+        <div class="container">
+          <h1>Delete Household</h1>
+          <p>Are you sure you want to delete this household?</p>
+
+          <div class="clearfix">
+            <button
+              type="button"
+              onclick="document.getElementById('id01').style.display='none'"
+              class="cancelbtn"
+            >
+              Cancel
+            </button>
+            <button type="button" onclick="deleteHousehold()" class="deletebtn">
+              Delete
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="/js/adminDropdown.js"></script>
+    <script src="/js/deleteHousehold.js"></script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+.content {
+  padding: 1rem;
+}
+
+h1 {
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 1rem;
+  > section {
+    border-radius: 5px;
+  }
+}
+
+.resident-profile {
+  border-top: 4px solid #001122;
+  background-color: white;
+  width: 25%;
+  height: max-content;
+}
+.resident-about {
+  display: block;
+  font-size: 1.1rem;
+  padding: 0.75rem 0.75rem;
+  border-bottom: 1px solid gray;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.resident-info {
+  padding: 1.25rem 0.75rem;
+}
+.profile-icon {
+  width: 75px;
+  display: block;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+.resident-name {
+  letter-spacing: 1px;
+  display: block;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+}
+.resident-household {
+  border-top: 4px solid #001122;
+  text-transform: capitalize;
+  background-color: white;
+  width: 75%;
+  height: max-content;
+}
+
+.household-members {
+  display: block;
+  font-size: 1.1rem;
+  padding: 0.75rem 0.75rem;
+  border-bottom: 1px solid gray;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.table {
+  box-shadow: 0px 5px 10px #e1e5ee;
+  width: 95%;
+  margin-inline: auto;
+  margin-block: 1.5rem;
+  border-collapse: collapse;
+
+  td,
+  th {
+    padding: 1rem;
+    text-align: center;
+  }
+  thead {
+    box-shadow: 0px 5px 10px #e1e5ee;
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: #f4f6fb;
+  }
+}
